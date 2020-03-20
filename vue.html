@@ -18,18 +18,26 @@
   </div>
 
   <div class="product-info">
-    <p v-if="inventory>10">In Stock</p>
-    <p v-else>Out of Stock</p>
-    <span id="blinker" class="onsale" v-if="onSale">On sale!</span>
-    <ul>
-      <li class = "details" v-for="detail in details"> {{detail}}</li>
-    </ul>
-
-    <button v-on:click="addToCart">Add to cart</button>
-    <button v-on:click="removeCart">Remove from cart</button>
-    <div class="Cart">
-      <p>Cart: {{cart}}</p>
+      <p v-if="inventory>10">In Stock</p>
+      <p v-else>Out of Stock</p>
+      <span id="blinker" class="onsale" v-if="onSale">On sale!</span>
+      <ul>
+        <li class = "details" v-for="detail in details"> {{detail}}</li>
+      </ul>
+  <div class = "info-bloc">
+    <div class = "variant-names" v-for="variant in variants" :key="variant.variantId">
+      <p @mouseover ="updateProduct(variant.variantImage, variant.variantColor, variant.inventory)"> {{variant.variantColor}}</p>
     </div>
+  </div>
+
+    <div class="addremove-cart">
+        <button v-on:click="addToCart" :disabled = "!inStock">Add to cart</button>
+        <button v-on:click="removeCart">Remove from cart</button>
+        <div class="Cart">
+          <p>Cart: {{cart}}</p>
+        </div>
+    </div>
+
   </div>
 
 

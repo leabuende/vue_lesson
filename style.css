@@ -16,10 +16,35 @@ body{
     grid-gap: 10px;
 }
 button{
-    padding: 2px 2px 2px 2px;
+    padding: 2px 5px 2px 5px;
+    font-family: Avenir;
+    background-color: hotpink;
+    color: white;
+    font-weight: bold;
+    font-size: 13px;
+    box-shadow: 10px 10px white;
 }
 button:hover{
+
     background-color: lightskyblue;
+}
+.variant-names{
+    font-size: 20px;
+    background-color: hotpink;
+    box-shadow: 10px 10px lightskyblue;
+    width: 50%;
+    padding-left: 10px;
+
+
+}
+.info-bloc{
+    margin-bottom: 40px;
+    margin-top: 30px;
+}
+.addremove-cart{
+    display: flex;
+    justify-content: space-evenly;
+
 }
 .nav-bar{
     grid-row: 1/2;
@@ -62,11 +87,18 @@ button:hover{
     grid-row: 2/3;
     background-color: pink;
     font-family: Avenir;
-    font-size: 50px;
+    font-size: 30px;
     color: white;
     padding-left: 10px;
+    padding-bottom: 20px;
 
 
+}
+
+.color-box{
+    width:40px;
+    height:40px;
+    margin-top: 5px;
 }
 .details{
     font-size: 20px;
@@ -76,7 +108,8 @@ button:hover{
     text-decoration: blink;
     background-color: pink;
     font-family: Avenir;
-    font-size: 50px;
+    font-size: 30px;
+    font-weight: bold;
     color: white;
 }
 

@@ -4,24 +4,28 @@ el:'#app',
         product: 'Pink Shoes',
         image: 'shoes-1.jpg',
         inventory: 100,
+        inStock: false,
         onSale:true,
-        details:["Vegan Leather","100% for bad bitches","Best Shoes on the market", "Made with love"],
+        details:["Vegan Leather","Best Shoes on the market", "Made with love"],
         cart:0,
         variants:[{
             variantId: 2234,
-            variantColor: 'pink',
+            variantColor: 'Pink flames',
             variantImage: 'shoes-1.jpg',
+            inventory:20
 
         },
             {
                 variantId: 2235,
-                variantColor: 'dangerous',
+                variantColor: 'Mary jane',
                 variantImage: 'shoes-2.jpg',
+                inventory: 8
             },
             {
                 variantId: 2236,
-                variantColor: 'wild',
+                variantColor: 'Butterly fantasy',
                 variantImage: 'shoes-3.jpg',
+                inventory: 20
             }]
     },
 
@@ -33,8 +37,10 @@ el:'#app',
         removeCart: function () {
             this.cart = this.cart > 0 ? this.cart - 1 : 0;
         },
-        updateProduct: function (variantImage) {
-            this.image = variantImage
+        updateProduct: function (variantImage,variantColor,inventory) {
+            this.image = variantImage,
+            this.product = variantColor
+            this.inventory = inventory
 
         }
     },
