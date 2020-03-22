@@ -12,13 +12,15 @@
   </div>
   <div id = "app" class ="content">
 
-    <product :premium = "premium"></product>
+    <product :premium = "premium" @add-to-cart="updateCart"></product>
     <product></product>
-    
 
 
-
-
+        <div class="cart-item">
+          <div class="Cart">
+            <p>Cart: {{ cart }}</p>
+          </div>
+        </div>
 
 
   </div>

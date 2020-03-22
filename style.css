@@ -39,7 +39,7 @@ button:hover{
 
     background-color: lightskyblue;
 }
-.disabled{
+button:disabled{
     background-color: lightgray;
 }
 .variant-names{
@@ -64,8 +64,11 @@ button:hover{
 .cart-item{
     padding-top: 20px;
     background-color: pink;
-    height: 10%;
+    height: 100px;
     width: 100%;
+    display: inline-block;
+
+
 }
 .nav-bar{
 
@@ -80,6 +83,7 @@ button:hover{
 
 .Cart{
     width: 70px;
+    height: 40px;
     padding: 1px 1px 1px 1px;
     background-color: lightskyblue;
     font-size: 20px;

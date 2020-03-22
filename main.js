@@ -39,7 +39,7 @@ Vue.component('product', {
             <div class="addremove-cart">
                 <button v-on:click="addToCart">Add to Cart</button>
                 <button v-on:click="removeCart" :disabled="this.card === 0" :click="removeCart">Remove from cart</button>
-                
+             
             </div>
           </div>
         </div>
@@ -52,7 +52,6 @@ Vue.component('product', {
             inStock: false,
             onSale: true,
             details: ["Vegan Leather", "Best Shoes on the market", "Made with love"],
-            cart: 0,
             variants: [
                 {
                     variantId: 2234,
@@ -88,7 +87,7 @@ Vue.component('product', {
 
     methods: {
         addToCart: function() {
-            this.cart = this.cart < 10 ? this.cart + 1 : 10;
+            this.$emit('add-to-cart')
         },
         removeCart: function() {
             this.cart = this.cart > 0 ? this.cart - 1 : 0;
@@ -105,6 +104,12 @@ Vue.component('product', {
 var app = new Vue({
     el: "#app",
     data:{
-        premium: true
+        premium: true,
+        cart: 0
+    },
+    method:{
+        updateCart(){
+            this.cart = this.cart < 10 ? this.cart + 1 : 10;
+        }
     }
 });
