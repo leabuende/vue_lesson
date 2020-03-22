@@ -83,12 +83,6 @@ Vue.component('product', {
     }
 });
 
-// var blink_speed = 500;
-// var t = setInterval(() => {
-//   var ele = document.getElementById('blinker')
-//   console.log()
-//   ele.style.visibility = (ele.style.visibility == 'hidden' ? '' : 'hidden')
-// }, blink_speed);
 
 var app = new Vue({
     el: "#app"

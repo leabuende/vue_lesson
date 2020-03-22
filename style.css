@@ -5,13 +5,16 @@
 }
 
 body{
-    background-color: lightskyblue;
 }
-
+.content{
+    padding-top: 60px;
+    display: flex;
+    flex-wrap: wrap;
+}
 .wrapper{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows:40px repeat(6, 1fr);
+    grid-template-rows: 400px;
     height: 100vh;
     width: 100vw;
     grid-gap: 10px;
@@ -48,7 +51,7 @@ button:hover{
 
 }
 .nav-bar{
-    grid-row: 1/2;
+
     background: linear-gradient(135deg, hotpink, deepskyblue);
     width: 100%;
     height: 40px;
@@ -67,7 +70,7 @@ button:hover{
 }
 .product-description{
     grid-column: 1/2;
-    grid-row: 2/3;
+    grid-row: 1/2;
     background-color: pink;
     text-align: left;
     vertical-align: middle;
@@ -77,15 +80,11 @@ button:hover{
     color: white;
     padding-left: 10px;
 }
-.product-picture{
-    grid-column: 1/2;
-    grid-row: 3/5;
-    background-color: pink;
-}
+
 
 .product-info{
     grid-column: 2/4 ;
-    grid-row: 2/3;
+    grid-row: 1/2;
     background-color: pink;
     font-family: Avenir;
     font-size: 30px;
