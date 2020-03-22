@@ -1,37 +1,78 @@
 var app = new Vue({
-el:'#app',
-    data:{
-        product: 'Pink Shoes',
-        image: 'shoes-1.jpg',
-        inventory: 100,
-        inStock: false,
-        onSale:true,
-        details:["Vegan Leather","Best Shoes on the market", "Made with love"],
-        cart:0,
-        variants:[{
-            variantId: 2234,
-            variantColor: 'Pink flames',
-            variantImage: 'shoes-1.jpg',
-            inventory:20
+    el:'#app',
+});
 
-        },
-            {
-                variantId: 2235,
-                variantColor: 'Mary jane',
-                variantImage: 'shoes-2.jpg',
-                inventory: 8
-            },
-            {
-                variantId: 2236,
-                variantColor: 'Butterly fantasy',
-                variantImage: 'shoes-3.jpg',
-                inventory: 20
-            }]
+Vue.component ('hello',{
+    template: `<h1>Hello</h1>`
+});
+
+
+
+
+
+
+Vue.component ('product',{
+    template:
+        `<div class="product-description">
+      <h1>{{product}}</h1>
+      <img v-bind:src="image">
+    </div>
+
+    <div class="product-info">
+        <p v-if="inventory>10">In Stock</p>
+        <p v-else>Out of Stock</p>
+        <span id="blinker" class="onsale" v-if="onSale">On sale!</span>
+        <ul>
+          <li class = "details" v-for="detail in details"> {{detail}}</li>
+        </ul>
+    <div class = "info-bloc">
+      <div class = "variant-names" v-for="variant in variants" :key="variant.variantId">
+        <p @mouseover ="updateProduct(variant.variantImage, variant.variantColor, variant.inventory)"> {{variant.variantColor}}</p>
+      </div>
+    </div>
+
+      <div class="addremove-cart">
+          <button v-on:click = "addToCart">Add to Cart</button>
+          <button v-on:click="removeCart">Remove from cart</button>
+          <div class="Cart">
+            <p>Cart: {{cart}}</p>
+          </div>
+      </div>
+
+    </div>`,
+    data(){
+        return {
+                product: 'Pink Shoes',
+                image: 'shoes-1.jpg',
+                inventory: 100,
+                inStock: false,
+                onSale:true,
+                details:["Vegan Leather","Best Shoes on the market", "Made with love"],
+                cart:0,
+                variants:[{
+                    variantId: 2234,
+                    variantColor: 'Pink flames',
+                    variantImage: 'shoes-1.jpg',
+                    inventory:20
+
+                },
+                    {
+                        variantId: 2235,
+                        variantColor: 'Mary jane',
+                        variantImage: 'shoes-2.jpg',
+                        inventory: 8
+                    },
+                    {
+                        variantId: 2236,
+                        variantColor: 'Butterly fantasy',
+                        variantImage: 'shoes-3.jpg',
+                        inventory: 20
+                    }]
+
+        }
     },
 
-
-
-    methods:{
+    methods: {
         addToCart: function () {
             this.cart = this.cart < 10 ? this.cart + 1 : 10;
         },
@@ -40,13 +81,10 @@ el:'#app',
         },
         updateProduct: function (variantImage,variantColor,inventory) {
             this.image = variantImage,
-            this.product = variantColor,
-            this.inventory = inventory;
+                this.product = variantColor,
+                this.inventory = inventory;
 
         }
     },
-
-
 });
-
 var blink_speed = 500; var t = setInterval(function () { var ele = document.getElementById('blinker'); ele.style.visibility = (ele.style.visibility == 'hidden' ? '' : 'hidden'); }, blink_speed);
