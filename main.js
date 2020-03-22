@@ -29,22 +29,24 @@ el:'#app',
             }]
     },
 
+
+
     methods:{
         addToCart: function () {
-            this.cart +=1;
-
+            this.cart = this.cart < 10 ? this.cart + 1 : 10;
         },
         removeCart: function () {
             this.cart = this.cart > 0 ? this.cart - 1 : 0;
         },
         updateProduct: function (variantImage,variantColor,inventory) {
             this.image = variantImage,
-            this.product = variantColor
-            this.inventory = inventory
+            this.product = variantColor,
+            this.inventory = inventory;
 
         }
     },
 
 
 });
+
 var blink_speed = 500; var t = setInterval(function () { var ele = document.getElementById('blinker'); ele.style.visibility = (ele.style.visibility == 'hidden' ? '' : 'hidden'); }, blink_speed);
