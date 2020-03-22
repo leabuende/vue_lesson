@@ -7,6 +7,10 @@
 body{
     background-color: lightskyblue;
 }
+
+.addremove-cart button{
+    cursor: pointer;
+}
 .content{
     padding-top: 60px;
     display: flex;
@@ -35,6 +39,9 @@ button:hover{
 
     background-color: lightskyblue;
 }
+.disabled{
+    background-color: lightgray;
+}
 .variant-names{
     font-size: 20px;
     background-color: hotpink;
@@ -44,6 +51,7 @@ button:hover{
 
 
 }
+
 .info-bloc{
     margin-bottom: 40px;
     margin-top: 30px;
@@ -52,6 +60,12 @@ button:hover{
     display: flex;
     justify-content: space-evenly;
 
+}
+.cart-item{
+    padding-top: 20px;
+    background-color: pink;
+    height: 10%;
+    width: 100%;
 }
 .nav-bar{
 

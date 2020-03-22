@@ -8,7 +8,8 @@ Vue.component('product', {
     props: {
         premium: {
             type: Boolean,
-            required: true
+            required: true,
+            default: false
         }
     },
     template: `
@@ -25,19 +26,20 @@ Vue.component('product', {
             <span id="blinker" class="onsale" v-if="onSale">On sale!</span>
             <ul>
               <li class="details" v-for="detail in details"> {{detail}}</li>
+              <li class="details">Shipping: {{ shipping }}</li>
             </ul>
             <div class="info-bloc">
               <div class="variant-names" v-for="variant in variants" :key="variant.variantId">
                 <p @mouseover="updateProduct(variant.variantImage, variant.variantColor, variant.inventory)"> {{variant.variantColor}}</p>
+               
               </div>
+              
             </div>
     
             <div class="addremove-cart">
                 <button v-on:click="addToCart">Add to Cart</button>
-                <button v-on:click="removeCart">Remove from cart</button>
-                <div class="Cart">
-                  <p>Cart: {{ cart }}</p>
-                </div>
+                <button v-on:click="removeCart" :disabled="this.card === 0" :click="removeCart">Remove from cart</button>
+                
             </div>
           </div>
         </div>
@@ -72,6 +74,16 @@ Vue.component('product', {
                 }
             ]
         };
+    },
+
+    computed: {
+        shipping(){
+            if(this.premium){
+                return "Free"
+            }else{
+                return 2.99
+            }
+        }
     },
 
     methods: {
