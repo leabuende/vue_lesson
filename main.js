@@ -5,6 +5,12 @@ Vue.component('hello', {
 });
 
 Vue.component('product', {
+    props: {
+        premium: {
+            type: Boolean,
+            required: true
+        }
+    },
     template: `
     <div class="wrapper">
           <div class="product-description">
@@ -85,5 +91,8 @@ Vue.component('product', {
 
 
 var app = new Vue({
-    el: "#app"
+    el: "#app",
+    data:{
+        premium: true
+    }
 });
