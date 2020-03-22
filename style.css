@@ -11,7 +11,7 @@ body{
 .wrapper{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 40px repeat(5, 1fr);
+    grid-template-rows:40px repeat(6, 1fr);
     height: 100vh;
     width: 100vw;
     grid-gap: 10px;
