@@ -38,7 +38,13 @@ Vue.component('product', {
     
             <div class="addremove-cart">
                 <button v-on:click="addToCart">Add to Cart</button>
-                <button v-on:click="removeCart" :disabled="this.card === 0" :click="removeCart">Remove from cart</button>
+                <button v-on:click="removeCart">Remove from cart</button>
+                <div class = "Cart">
+                  <p>Cart: {{ cart }}</p>
+                </div>
+                
+                  
+ 
              
             </div>
           </div>
@@ -46,6 +52,7 @@ Vue.component('product', {
    `,
     data() {
         return {
+            cart: 0,
             product: "Pink Shoes",
             image: "shoes-1.jpg",
             inventory: 100,
@@ -87,7 +94,7 @@ Vue.component('product', {
 
     methods: {
         addToCart: function() {
-            this.$emit('add-to-cart')
+            this.cart = this.cart < 10 ? this.cart + 1 : 10;
         },
         removeCart: function() {
             this.cart = this.cart > 0 ? this.cart - 1 : 0;
@@ -105,11 +112,5 @@ var app = new Vue({
     el: "#app",
     data:{
         premium: true,
-        cart: 0
     },
-    method:{
-        updateCart(){
-            this.cart = this.cart < 10 ? this.cart + 1 : 10;
-        }
-    }
 });
